@@ -40,7 +40,7 @@ const locationData: Record<string, any> = {
     crops: ["ধান", "গম", "ভুট্টা", "পাট", "আখ", "সরিষা"],
   },
   te: {
-    location: "హైదరాబాద్, భారతదేశం",
+    location: "హైదరాబాదు, भारत",
     weather: { temp: "30°C", humidity: "60%", wind: "15 km/h", condition: "ఎండ" },
     crops: ["బియ్యం", "గోధుమలు", "మొక్కజొన్న", "పత్తి", "చెరకు", "జొన్న"],
   },
@@ -102,32 +102,6 @@ export default function Dashboard() {
 
   // 🌐 UI text translations
   const labels: any = {
-    hi: {
-      changeLang: "भाषा बदलें",
-      overview: "अवलोकन",
-      analytics: "एनालिटिक्स",
-      todayWeather: "आज का मौस��",
-      temp: "तापमान",
-      humidity: "नमी",
-      wind: "हवा",
-      condition: "स्थिति",
-      selectCrop: "अपनी फसल चुनें",
-      chooseCrop: "फसल चुनें...",
-      recFor: (crop: string) => `${crop} के लिए सुझाव`,
-      rec1: "मिट्टी की नमी बनाए रखें",
-      rec2: "नियमित निरीक्षण करें",
-      rec3: "उर्वरक का उपयोग करें",
-      todayRecs: "आज की सिफारिशें",
-      weatherAlert: "मौसम चेतावनी",
-      rain: "अगले 3 दिनों में बारिश की संभावना",
-      sowing: "बुआई का समय",
-      wheatSowing: "गेहूं बुआई के लिए उपयुक्त समय",
-      thisWeek: "इस सप्ताह",
-      rainyDays: "बारिश के दिन",
-      avgTemp: "औसत तापमान",
-      soilMoisture: "मिट्टी की नमी",
-      friendly: "खुशहाल खेती के लिए सरल सुझाव और उपकरण",
-    },
     en: {
       changeLang: "Change Language",
       overview: "Overview",
@@ -154,174 +128,20 @@ export default function Dashboard() {
       soilMoisture: "Soil Moisture",
       friendly: "Simple tips and tools for happier farming",
     },
-    bn: {
-      changeLang: "ভাষা পরিবর্তন",
-      overview: "সংক্ষিপ্ত বিবরণ",
-      analytics: "বিশ্লেষণ",
-      todayWeather: "আজকের আবহাওয়া",
-      temp: "তাপমাত্রা",
-      humidity: "আর্দ্রতা",
-      wind: "বাতাস",
-      condition: "অবস��থা",
-      selectCrop: "আপনার ফসল নির্বাচন করুন",
-      chooseCrop: "ফসল নির্বাচন করুন...",
-      recFor: (crop: string) => `${crop} এর জন্য পরামর্শ`,
-      rec1: "মাটির আর্দ্রতা বজায় রাখুন",
-      rec2: "নিয়মিত পরিদর্শন করুন",
-      rec3: "সার প্রয়োগ করুন",
-      todayRecs: "আজকের সুপারিশ",
-      weatherAlert: "আবহাওয়া সতর্কতা",
-      rain: "পরবর্তী ৩ দিনে বৃষ্টির সম্ভাবনা",
-      sowing: "বপনের সময়",
-      wheatSowing: "গমের জন্য উপযুক্ত বপনের সময়",
-      thisWeek: "এই সপ্তাহে",
-      rainyDays: "বৃষ্টির দিন",
-      avgTemp: "গড় তাপমাত্রা",
-      soilMoisture: "মাটির আর্দ্রতা",
-      friendly: "সহজ টিপস ও টুলস, চাষ আরও সহজ",
-    },
-    te: {
-      changeLang: "భాష మార్చండి",
-      overview: "అవలోకనం",
-      analytics: "విశ్లేషణ",
-      todayWeather: "ఈరోజు వాతావరణం",
-      temp: "ఉష్ణోగ్రత",
-      humidity: "ఆర్ద్రత",
-      wind: "గాలి",
-      condition: "స్థితి",
-      selectCrop: "మీ పంటను ఎంచుకోండి",
-      chooseCrop: "పంటను ఎంచుకోండి...",
-      recFor: (crop: string) => `${crop} కోసం సూచనలు`,
-      rec1: "మట్టి తేమను ఉంచండి",
-      rec2: "క్రమం తప్పకుండా పర్యవేక్షించండి",
-      rec3: "అవసరమైతే ఎరువులు వాడండి",
-      todayRecs: "ఈరోజు సిఫారసులు",
-      weatherAlert: "వాతావరణ హెచ్చరిక",
-      rain: "తదుపరి 3 రోజుల్లో వర్షం అవకాశం ఉంది",
-      sowing: "విత్తన సమయం",
-      wheatSowing: "గోధుమల విత్తనానికి అనుకూల సమయం",
-      thisWeek: "ఈ వారం",
-      rainyDays: "వర్షపు రోజులు",
-      avgTemp: "సగటు ఉష్ణోగ్రత",
-      soilMoisture: "మ���్టి తేమ",
-      friendly: "సులభమైన చిట్కాలు, సంతోషమైన వ్యవసాయం",
-    },
-    ta: {
-      changeLang: "மொழி மாற்று",
-      overview: "மேலோட்டம்",
-      analytics: "பகுப்பாய்வு",
-      todayWeather: "இன்றைய வானிலை",
-      temp: "வெப்பநிலை",
-      humidity: "ஈரப்பதம்",
-      wind: "காற்று",
-      condition: "நிலை",
-      selectCrop: "உங்கள் பயிரைத் தேர்வுசெய்க",
-      chooseCrop: "பயிரைத் தேர்ந்தெடுக்கவும்...",
-      recFor: (crop: string) => `${crop} பரிந்துரைகள்`,
-      rec1: "மண் ஈரப்பதத்தை பராமரிக்கவும்",
-      rec2: "தொடர்ந்து கண்காணிக்கவும்",
-      rec3: "தேவையெனில் உரங்களைப் பயன்படுத்தவும்",
-      todayRecs: "இன்றைய பரிந்துரைகள்",
-      weatherAlert: "வானிலை எச்சரிக்கை",
-      rain: "அடுத்த 3 நாட்களில் மழை வாய்ப்பு",
-      sowing: "விதைப்பு நேரம்",
-      wheatSowing: "கோதுமை விதைப்பதற்கு சிறந்த நேரம்",
-      thisWeek: "இந்த வாரம்",
-      rainyDays: "மழை நாட்கள்",
-      avgTemp: "சராசரி வெப்பநிலை",
-      soilMoisture: "மண் ஈரப்பதம்",
-      friendly: "எளிய குறிப்புகள், மகிழ்ச்சியான விவசாயம்",
-    },
-    mr: {
-      changeLang: "भाषा बदला",
-      overview: "आढावा",
-      analytics: "विश्लेषण",
-      todayWeather: "आजचे हवामान",
-      temp: "तापमान",
-      humidity: "आर्द्रता",
-      wind: "वारा",
-      condition: "स्थिती",
-      selectCrop: "तुमची पिके निवडा",
-      chooseCrop: "पिक निवडा...",
-      recFor: (crop: string) => `${crop} साठी सूचना`,
-      rec1: "मातीतील ओलावा टिकवा",
-      rec2: "नियमित तपासणी करा",
-      rec3: "आवश्यकतेनुसार खत द्या",
-      todayRecs: "आजच्या शिफारसी",
-      weatherAlert: "हवामान सूचना",
-      rain: "पुढील ३ दिवसात पावसाची शक्यता",
-      sowing: "पेरणीचा काळ",
-      wheatSowing: "गव्हाच्या पेरणीसाठी योग्य वेळ",
-      thisWeek: "या आठवड्यात",
-      rainyDays: "पावसाचे दिवस",
-      avgTemp: "सरासरी तापमान",
-      soilMoisture: "मातीतील ओलावा",
-      friendly: "सोपे टिप्स, आनंदी शेती",
-    },
-    gu: {
-      changeLang: "ભાષા બદલો",
-      overview: "ઝાંખી",
-      analytics: "વિશ્લેષણ",
-      todayWeather: "આજનું હવામાન",
-      temp: "તાપમાન",
-      humidity: "ભેજ",
-      wind: "પવન",
-      condition: "પરિસ્થિતિ",
-      selectCrop: "તમારી પાક પસંદ કરો",
-      chooseCrop: "પાક પસંદ કરો...",
-      recFor: (crop: string) => `${crop} માટે ભલામણો`,
-      rec1: "માટીનો ભ��જ જાળવો",
-      rec2: "નિયમિત નિરીક્ષણ કરો",
-      rec3: "જરૂર મુજબ ખાતર આપો",
-      todayRecs: "આજની ભલામ���ો",
-      weatherAlert: "હવામાન ચેતવણી",
-      rain: "આગામી 3 દિવસમાં વરસાદની સંભાવના",
-      sowing: "વાવણી સમય",
-      wheatSowing: "ગહૂં વાવણી માટે યોગ્ય સમય",
-      thisWeek: "આ અઠવાડિયે",
-      rainyDays: "વરસાદના દિવસો",
-      avgTemp: "સરેરાશ તાપમાન",
-      soilMoisture: "માટીનો ભેજ",
-      friendly: "સરળ ટીપ્સ, આનંદમય ખેતી",
-    },
-    kn: {
-      changeLang: "ಭಾಷೆ ಬದಲಾಯಿಸಿ",
-      overview: "ಅವಲೋಕನ",
-      analytics: "ವಿಶ್ಲೇಷಣೆ",
-      todayWeather: "ಇಂದಿನ ಹವಾಮಾನ",
-      temp: "ತಾಪಮಾನ",
-      humidity: "ಆದ್ರತೆ",
-      wind: "ಗಾಳಿ",
-      condition: "ಸ್ಥಿತಿ",
-      selectCrop: "ನಿಮ್ಮ ಬೆಳೆ ಆರಿಸಿ",
-      chooseCrop: "ಬೆಳೆ ಆರಿಸಿ...",
-      recFor: (crop: string) => `${crop} ಶಿಫಾರಸುಗಳು`,
-      rec1: "ಮಣ್ಣಿನ ತೇವಾಂಶವನ್ನು ಕಾಪಾಡಿ",
-      rec2: "ನಿಯಮಿತವಾಗ�� ಪರಿಶೀಲಿಸಿ",
-      rec3: "ಅವಶ್ಯಕತೆ ಇದ್ದರೆ ರಸಗೊಬ್ಬರ ಬಳಸಿ",
-      todayRecs: "ಇಂದಿನ ಶಿಫಾರಸುಗಳು",
-      weatherAlert: "ಹವಾಮಾನ ಎಚ್ಚರಿಕೆ",
-      rain: "ಮುಂದಿನ 3 ದಿನಗಳಲ್ಲಿ ಮಳೆ ಸಾಧ್ಯತೆ",
-      sowing: "ಬಿತ್ತನೆ ಸಮಯ",
-      wheatSowing: "ಗೋಧಿ ಬಿತ್ತನೆಗೆ ಉತ್ತಮ ಸಮಯ",
-      thisWeek: "ಈ ವಾರ",
-      rainyDays: "ಮಳೆ ದಿನಗಳು",
-      avgTemp: "ಸರಾಸರಿ ತಾಪಮಾನ",
-      soilMoisture: "ಮಣ್ಣಿನ ತೇವಾಂಶ",
-      friendly: "ಸರಳ ಸಲಹೆಗಳು, ಸಂತೋಷದ ಕೃಷಿ",
-    },
   }
 
-  const t = labels[language]
+  const t = labels[language] || labels.en
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background playful-gradient-bg">
       {/* Header */}
-      <div className="border-b bg-card">
-        <div className="container mx-auto px-4 py-5">
+      <div className="border-b bg-card relative overflow-visible">
+        <div className="container mx-auto px-4 py-5 relative">
+          <div className="absolute -left-8 -top-6 playful-blob pointer-events-none hidden lg:block" />
+
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary rounded-lg">
+              <div className="p-2 bg-primary rounded-lg playful-icon">
                 <Sprout className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
@@ -332,10 +152,10 @@ export default function Dashboard() {
 
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="h-4 w-4" />
+                <MapPin className="h-4 w-4 playful-icon" />
                 <span>{currentData.location}</span>
               </div>
-              <Button variant="outline" size="sm" onClick={handleLanguageChange}>
+              <Button className="playful-button" onClick={handleLanguageChange}>
                 {t.changeLang}
               </Button>
             </div>
@@ -348,10 +168,10 @@ export default function Dashboard() {
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 bg-muted/60 rounded-xl p-1">
             <TabsTrigger value="overview" className="flex items-center gap-2 rounded-lg data-[state=active]:bg-card">
-              <Sprout className="h-4 w-4" /> {t.overview}
+              <Sprout className="h-4 w-4 playful-icon" /> {t.overview}
             </TabsTrigger>
             <TabsTrigger value="analytics" className="flex items-center gap-2 rounded-lg data-[state=active]:bg-card">
-              <BarChart3 className="h-4 w-4" /> {t.analytics}
+              <BarChart3 className="h-4 w-4 playful-icon" /> {t.analytics}
             </TabsTrigger>
           </TabsList>
 
@@ -360,30 +180,30 @@ export default function Dashboard() {
               {/* Main Content */}
               <div className="lg:col-span-2 space-y-6">
                 {/* Weather */}
-                <Card className="hover:shadow-sm transition-shadow">
+                <Card className="playful-card hover:shadow-sm transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Sun className="h-5 w-5" /> {t.todayWeather}
+                      <Sun className="h-5 w-5 playful-icon" /> {t.todayWeather}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="text-center rounded-lg bg-muted/50 p-4">
+                      <div className="playful-weather-tile playful-icon">
                         <Thermometer className="h-8 w-8 text-orange-500 mx-auto mb-2" />
                         <p className="text-2xl font-bold">{currentData.weather.temp}</p>
                         <p className="text-sm text-muted-foreground">{t.temp}</p>
                       </div>
-                      <div className="text-center rounded-lg bg-muted/50 p-4">
+                      <div className="playful-weather-tile playful-icon">
                         <Droplets className="h-8 w-8 text-blue-500 mx-auto mb-2" />
                         <p className="text-2xl font-bold">{currentData.weather.humidity}</p>
                         <p className="text-sm text-muted-foreground">{t.humidity}</p>
                       </div>
-                      <div className="text-center rounded-lg bg-muted/50 p-4">
+                      <div className="playful-weather-tile playful-icon">
                         <Wind className="h-8 w-8 text-gray-500 mx-auto mb-2" />
                         <p className="text-2xl font-bold">{currentData.weather.wind}</p>
                         <p className="text-sm text-muted-foreground">{t.wind}</p>
                       </div>
-                      <div className="text-center rounded-lg bg-muted/50 p-4">
+                      <div className="playful-weather-tile playful-icon">
                         <Sun className="h-8 w-8 text-yellow-500 mx-auto mb-2" />
                         <p className="text-lg font-bold">{currentData.weather.condition}</p>
                         <p className="text-sm text-muted-foreground">{t.condition}</p>
@@ -393,10 +213,10 @@ export default function Dashboard() {
                 </Card>
 
                 {/* Crop Selection */}
-                <Card className="hover:shadow-sm transition-shadow">
+                <Card className="playful-card hover:shadow-sm transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Sprout className="h-5 w-5" /> {t.selectCrop}
+                      <Sprout className="h-5 w-5 playful-icon" /> {t.selectCrop}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -427,10 +247,10 @@ export default function Dashboard() {
                 </Card>
 
                 {/* Recommendations */}
-                <Card className="hover:shadow-sm transition-shadow">
+                <Card className="playful-card hover:shadow-sm transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <TrendingUp className="h-5 w-5" /> {t.todayRecs}
+                      <TrendingUp className="h-5 w-5 playful-icon" /> {t.todayRecs}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
@@ -458,10 +278,10 @@ export default function Dashboard() {
                 <VoiceChatbot language={language} />
 
                 {/* Quick Stats */}
-                <Card className="hover:shadow-sm transition-shadow">
+                <Card className="playful-card hover:shadow-sm transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5" /> {t.thisWeek}
+                      <Calendar className="h-5 w-5 playful-icon" /> {t.thisWeek}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
