@@ -221,7 +221,7 @@
   inset: 0;
   overflow: hidden;
 }
-.confetti span {
+.confetti span, .confetti-dot {
   position: absolute;
   width: 10px;
   height: 16px;
@@ -229,6 +229,11 @@
   transform-origin: center;
   animation: confetti-fall linear infinite;
 }
+.confetti-dot-1 { left: 8%; top: 8%; background: #F59E0B; animation-duration: 6s; }
+.confetti-dot-2 { left: 28%; top: 4%; background: #34D399; animation-duration: 5.5s; }
+.confetti-dot-3 { left: 46%; top: 2%; background: #60A5FA; animation-duration: 6.5s; }
+.confetti-dot-4 { left: 68%; top: 6%; background: #FB7185; animation-duration: 5s; }
+.confetti-dot-5 { left: 86%; top: 10%; background: #FDE68A; animation-duration: 7s; }
 @keyframes confetti-fall {
   0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
   100% { transform: translateY(110vh) rotate(720deg); opacity: 0.6; }

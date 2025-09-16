@@ -22,30 +22,34 @@ import VoiceChatbot from "@/components/voice-chatbot"
 import CropAnalytics from "@/components/crop-analytics"
 import { Badge } from "@/components/ui/badge"
 import Mascot from "@/components/mascot"
+import ThemeToggle from "@/components/ui/theme-toggle"
 
 // 🌍 Language-specific mock data
-const locationData: Record<string, any> = {
+const locationData = {
   en: {
     location: "Delhi, India",
     weather: { temp: "28°C", humidity: "65%", wind: "12 km/h", condition: "Sunny" },
     crops: ["Wheat", "Rice", "Maize", "Mustard", "Sugarcane", "Sorghum"],
   },
-}
+} as const
+
+type LanguageCode = keyof typeof locationData
+const isLangSupported = (lang: string | null): lang is LanguageCode => !!lang && lang in locationData
 
 export default function Dashboard() {
   const [selectedCrop, setSelectedCrop] = useState<string>("")
-  const [language, setLanguage] = useState<"en">("en")
+  const [language, setLanguage] = useState<LanguageCode>("en")
   const [activeTab, setActiveTab] = useState("overview")
   const router = useRouter()
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const lang = (urlParams.get("lang") as typeof language) || "en"
-    setLanguage(lang)
+    const params = new URLSearchParams(window.location.search)
+    const raw = params.get("lang")?.toLowerCase() || null
+    setLanguage(isLangSupported(raw) ? raw : "en")
   }, [])
 
   const handleLanguageChange = () => router.push("/")
-  const currentData = locationData[language]
+  const currentData = locationData[language] ?? locationData.en
 
   const t = {
     changeLang: "Change Language",
@@ -88,6 +92,7 @@ export default function Dashboard() {
                 <MapPin className="h-4 w-4 playful-icon" />
                 <span>{currentData.location}</span>
               </div>
+              <ThemeToggle />
               <Button className="playful-button" onClick={handleLanguageChange}>
                 {t.changeLang}
               </Button>
@@ -114,11 +119,11 @@ export default function Dashboard() {
                 </div>
                 <div className="confetti" aria-hidden>
                   {/* small decorative confetti elements */}
-                  <span style={{ left: '8%', top: '8%', background: '#F59E0B', animationDuration: '6s' }} />
-                  <span style={{ left: '28%', top: '4%', background: '#34D399', animationDuration: '5.5s' }} />
-                  <span style={{ left: '46%', top: '2%', background: '#60A5FA', animationDuration: '6.5s' }} />
-                  <span style={{ left: '68%', top: '6%', background: '#FB7185', animationDuration: '5s' }} />
-                  <span style={{ left: '86%', top: '10%', background: '#FDE68A', animationDuration: '7s' }} />
+                  <span className="confetti-dot confetti-dot-1" />
+                  <span className="confetti-dot confetti-dot-2" />
+                  <span className="confetti-dot confetti-dot-3" />
+                  <span className="confetti-dot confetti-dot-4" />
+                  <span className="confetti-dot confetti-dot-5" />
                 </div>
               </div>
             </div>
