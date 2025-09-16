@@ -24,28 +24,31 @@ import { Badge } from "@/components/ui/badge"
 import Mascot from "@/components/mascot"
 
 // 🌍 Language-specific mock data
-const locationData: Record<string, any> = {
+const locationData = {
   en: {
     location: "Delhi, India",
     weather: { temp: "28°C", humidity: "65%", wind: "12 km/h", condition: "Sunny" },
     crops: ["Wheat", "Rice", "Maize", "Mustard", "Sugarcane", "Sorghum"],
   },
-}
+} as const
+
+type LanguageCode = keyof typeof locationData
+const isLangSupported = (lang: string | null): lang is LanguageCode => !!lang && lang in locationData
 
 export default function Dashboard() {
   const [selectedCrop, setSelectedCrop] = useState<string>("")
-  const [language, setLanguage] = useState<"en">("en")
+  const [language, setLanguage] = useState<LanguageCode>("en")
   const [activeTab, setActiveTab] = useState("overview")
   const router = useRouter()
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search)
-    const lang = (urlParams.get("lang") as typeof language) || "en"
-    setLanguage(lang)
+    const params = new URLSearchParams(window.location.search)
+    const raw = params.get("lang")?.toLowerCase() || null
+    setLanguage(isLangSupported(raw) ? raw : "en")
   }, [])
 
   const handleLanguageChange = () => router.push("/")
-  const currentData = locationData[language]
+  const currentData = locationData[language] ?? locationData.en
 
   const t = {
     changeLang: "Change Language",
