@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
+::root {
   /* Updated color palette for agricultural theme with emerald greens */
   --background: oklch(1 0 0); /* Pure white */
   --foreground: oklch(0.35 0 0); /* Dark gray for text */
@@ -124,3 +124,81 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Playful theme helpers */
+.playful-gradient-bg {
+  background: linear-gradient(135deg, color-mix(in oklch, var(--primary) 40%, white), color-mix(in oklch, var(--accent) 30%, white));
+}
+
+.playful-card {
+  border-radius: calc(var(--radius) * 1.8);
+  background: linear-gradient(180deg, color-mix(in oklch, var(--card) 85%, var(--accent) 15%), var(--card));
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.06), 0 2px 6px rgba(15, 23, 42, 0.04);
+  border: 1px solid color-mix(in oklch, var(--accent) 20%, transparent);
+}
+
+.playful-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px; /* pill */
+  background: linear-gradient(90deg, color-mix(in oklch, var(--primary) 70%, white), color-mix(in oklch, var(--accent) 60%, white));
+  color: var(--primary-foreground);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.06), 0 2px 6px rgba(16, 185, 129, 0.06);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.playful-button:hover { transform: translateY(-2px) scale(1.02); }
+
+.playful-blob {
+  position: absolute;
+  width: 180px;
+  height: 140px;
+  filter: blur(22px);
+  opacity: 0.14;
+  border-radius: 40% 60% 50% 50% / 55% 40% 60% 45%;
+  background: radial-gradient(circle at 30% 30%, color-mix(in oklch, var(--accent) 65%, white), transparent 40%), radial-gradient(circle at 70% 70%, color-mix(in oklch, var(--primary) 40%, white), transparent 45%);
+  transform: translateY(-8px) rotate(-10deg);
+  animation: float 6s ease-in-out infinite;
+}
+
+.playful-icon {
+  transition: transform 200ms ease;
+}
+.playful-icon:hover { transform: rotate(-12deg) scale(1.08); }
+
+.playful-weather-tile {
+  background: linear-gradient(180deg, color-mix(in oklch, var(--accent) 10%, var(--card)), var(--card));
+  border-radius: calc(var(--radius) * 1.2);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Small animation utilities */
+@keyframes float {
+  0% { transform: translateY(-6px) rotate(-10deg); }
+  50% { transform: translateY(6px) rotate(6deg); }
+  100% { transform: translateY(-6px) rotate(-10deg); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.pulse-slow { animation: bounce-slow 1.6s infinite; }
+
+/* playful chat bubbles */
+.chat-bubble-user { background: linear-gradient(90deg, color-mix(in oklch, var(--primary) 70%, white), var(--primary)); color: var(--primary-foreground); border-radius: 18px 18px 6px 18px; }
+.chat-bubble-bot { background: linear-gradient(90deg, color-mix(in oklch, var(--muted) 85%, white), var(--muted)); color: var(--muted-foreground); border-radius: 18px 18px 18px 6px; }
+
+/* helper for slight glass effect on cards */
+.card-glass { background-color: color-mix(in oklch, var(--card) 85%, white 15%); backdrop-filter: blur(6px); }
+
+/* Respect original breakpoints and radii: utility mixins */
+@media (min-width: 1024px) {
+  .playful-blob { width: 260px; height: 200px; opacity: 0.16; }
+}
+
+/* End playful helpers */
