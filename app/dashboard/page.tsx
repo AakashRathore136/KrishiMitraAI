@@ -21,58 +21,20 @@ import {
 import VoiceChatbot from "@/components/voice-chatbot"
 import CropAnalytics from "@/components/crop-analytics"
 import { Badge } from "@/components/ui/badge"
+import Mascot from "@/components/mascot"
 
 // 🌍 Language-specific mock data
 const locationData: Record<string, any> = {
-  hi: {
-    location: "दिल्ली, भारत",
-    weather: { temp: "28°C", humidity: "65%", wind: "12 km/h", condition: "धूप" },
-    crops: ["गेहूं", "धान", "मक्का", "सरसों", "गन्ना", "ज्वार"],
-  },
   en: {
     location: "Delhi, India",
     weather: { temp: "28°C", humidity: "65%", wind: "12 km/h", condition: "Sunny" },
     crops: ["Wheat", "Rice", "Maize", "Mustard", "Sugarcane", "Sorghum"],
   },
-  bn: {
-    location: "ঢাকা, বাংলাদেশ",
-    weather: { temp: "26°C", humidity: "72%", wind: "10 km/h", condition: "রৌদ্রোজ্জ্বল" },
-    crops: ["ধান", "গম", "ভুট্টা", "পাট", "আখ", "সরিষা"],
-  },
-  te: {
-    location: "హైదరాబాదు, भारत",
-    weather: { temp: "30°C", humidity: "60%", wind: "15 km/h", condition: "ఎండ" },
-    crops: ["బియ్యం", "గోధుమలు", "మొక్కజొన్న", "పత్తి", "చెరకు", "జొన్న"],
-  },
-  ta: {
-    location: "சென்னை, இந்தியா",
-    weather: { temp: "32°C", humidity: "70%", wind: "14 km/h", condition: "வெயில்" },
-    crops: ["அரிசி", "கோதுமை", "சோளம்", "கரும்பு", "பருத்தி", "சோயாபீன்"],
-  },
-  mr: {
-    location: "पुणे, भारत",
-    weather: { temp: "29°C", humidity: "68%", wind: "11 km/h", condition: "सूर्यप्रकाश" },
-    crops: ["तांदूळ", "गहू", "मका", "ऊस", "सोयाबीन", "कापूस"],
-  },
-  gu: {
-    location: "અમદાવાદ, ભારત",
-    weather: { temp: "31°C", humidity: "62%", wind: "13 km/h", condition: "ધુપછાંવ" },
-    crops: ["ચોખા", "ગહું", "મકાઈ", "કપાસ", "શેરડી", "જ્વાર"],
-  },
-  kn: {
-    location: "ಬೆಂಗಳೂರು, ಭಾರತ",
-    weather: { temp: "27°C", humidity: "75%", wind: "9 km/h", condition: "ಬಿಸಿಲು" },
-    crops: ["ಅಕ್ಕಿ", "ಗೋಧಿ", "ಮೆಕ್ಕೆಜೋಳ", "ಹತ್ತಿ", "ಕಬ್ಬು", "ಜೋಳ"],
-  },
 }
 
 export default function Dashboard() {
   const [selectedCrop, setSelectedCrop] = useState<string>("")
-  const [location, setLocation] = useState<string>("")
-  const [language, setLanguage] = useState<
-    "hi" | "en" | "bn" | "te" | "ta" | "mr" | "gu" | "kn"
-  >("en")
-  const [locationPermission, setLocationPermission] = useState<"granted" | "denied" | "prompt">("prompt")
+  const [language, setLanguage] = useState<"en">("en")
   const [activeTab, setActiveTab] = useState("overview")
   const router = useRouter()
 
@@ -80,57 +42,28 @@ export default function Dashboard() {
     const urlParams = new URLSearchParams(window.location.search)
     const lang = (urlParams.get("lang") as typeof language) || "en"
     setLanguage(lang)
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLocationPermission("granted")
-          setLocation(`${position.coords.latitude.toFixed(2)}, ${position.coords.longitude.toFixed(2)}`)
-        },
-        () => {
-          setLocationPermission("denied")
-        },
-      )
-    }
   }, [])
 
-  const handleLanguageChange = () => {
-    router.push("/")
-  }
-
+  const handleLanguageChange = () => router.push("/")
   const currentData = locationData[language]
 
-  // 🌐 UI text translations
-  const labels: any = {
-    en: {
-      changeLang: "Change Language",
-      overview: "Overview",
-      analytics: "Analytics",
-      todayWeather: "Today's Weather",
-      temp: "Temperature",
-      humidity: "Humidity",
-      wind: "Wind",
-      condition: "Condition",
-      selectCrop: "Select Your Crop",
-      chooseCrop: "Choose a crop...",
-      recFor: (crop: string) => `Recommendations for ${crop}`,
-      rec1: "Maintain soil moisture",
-      rec2: "Regular monitoring required",
-      rec3: "Apply fertilizer as needed",
-      todayRecs: "Today's Recommendations",
-      weatherAlert: "Weather Alert",
-      rain: "Rain expected in next 3 days",
-      sowing: "Sowing Time",
-      wheatSowing: "Optimal time for wheat sowing",
-      thisWeek: "This Week",
-      rainyDays: "Rainy Days",
-      avgTemp: "Avg Temperature",
-      soilMoisture: "Soil Moisture",
-      friendly: "Simple tips and tools for happier farming",
-    },
+  const t = {
+    changeLang: "Change Language",
+    overview: "Overview",
+    analytics: "Analytics",
+    todayWeather: "Today's Weather",
+    selectCrop: "Select Your Crop",
+    chooseCrop: "Choose a crop...",
+    todayRecs: "Today's Recommendations",
+    thisWeek: "This Week",
+    rainyDays: "Rainy Days",
+    avgTemp: "Avg Temperature",
+    soilMoisture: "Soil Moisture",
+    friendly: "Simple tips and tools for happier farming",
+    ctaTitle: "Meet Mitra — your friendly farm buddy!",
+    ctaDesc: "Quick tips, playful guidance, and instant help — in your language.",
+    ctaButton: "Show me around",
   }
-
-  const t = labels[language] || labels.en
 
   return (
     <div className="min-h-screen bg-background playful-gradient-bg">
@@ -158,6 +91,36 @@ export default function Dashboard() {
               <Button className="playful-button" onClick={handleLanguageChange}>
                 {t.changeLang}
               </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero CTA */}
+        <div className="container mx-auto px-4">
+          <div className="-mt-8 relative">
+            <div className="hero-cta playful-card">
+              <div>
+                <h2 className="text-2xl font-extrabold mb-2">{t.ctaTitle}</h2>
+                <p className="text-sm text-muted-foreground mb-4">{t.ctaDesc}</p>
+                <div className="flex items-center gap-3">
+                  <Button className="playful-button" onClick={() => setActiveTab('overview')}>{t.ctaButton}</Button>
+                  <span className="badge-playful">New</span>
+                </div>
+              </div>
+
+              <div className="relative flex items-center justify-center">
+                <div className="pulse-slow">
+                  <Mascot className="h-36 w-36" />
+                </div>
+                <div className="confetti" aria-hidden>
+                  {/* small decorative confetti elements */}
+                  <span style={{ left: '8%', top: '8%', background: '#F59E0B', animationDuration: '6s' }} />
+                  <span style={{ left: '28%', top: '4%', background: '#34D399', animationDuration: '5.5s' }} />
+                  <span style={{ left: '46%', top: '2%', background: '#60A5FA', animationDuration: '6.5s' }} />
+                  <span style={{ left: '68%', top: '6%', background: '#FB7185', animationDuration: '5s' }} />
+                  <span style={{ left: '86%', top: '10%', background: '#FDE68A', animationDuration: '7s' }} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -191,22 +154,22 @@ export default function Dashboard() {
                       <div className="playful-weather-tile playful-icon">
                         <Thermometer className="h-8 w-8 text-orange-500 mx-auto mb-2" />
                         <p className="text-2xl font-bold">{currentData.weather.temp}</p>
-                        <p className="text-sm text-muted-foreground">{t.temp}</p>
+                        <p className="text-sm text-muted-foreground">Temperature</p>
                       </div>
                       <div className="playful-weather-tile playful-icon">
                         <Droplets className="h-8 w-8 text-blue-500 mx-auto mb-2" />
                         <p className="text-2xl font-bold">{currentData.weather.humidity}</p>
-                        <p className="text-sm text-muted-foreground">{t.humidity}</p>
+                        <p className="text-sm text-muted-foreground">Humidity</p>
                       </div>
                       <div className="playful-weather-tile playful-icon">
                         <Wind className="h-8 w-8 text-gray-500 mx-auto mb-2" />
                         <p className="text-2xl font-bold">{currentData.weather.wind}</p>
-                        <p className="text-sm text-muted-foreground">{t.wind}</p>
+                        <p className="text-sm text-muted-foreground">Wind</p>
                       </div>
                       <div className="playful-weather-tile playful-icon">
                         <Sun className="h-8 w-8 text-yellow-500 mx-auto mb-2" />
                         <p className="text-lg font-bold">{currentData.weather.condition}</p>
-                        <p className="text-sm text-muted-foreground">{t.condition}</p>
+                        <p className="text-sm text-muted-foreground">Condition</p>
                       </div>
                     </div>
                   </CardContent>
@@ -235,11 +198,11 @@ export default function Dashboard() {
 
                     {selectedCrop && (
                       <div className="mt-4 p-4 bg-muted rounded-lg">
-                        <h4 className="font-semibold mb-2">{t.recFor(selectedCrop)}</h4>
+                        <h4 className="font-semibold mb-2">Recommendations for {selectedCrop}</h4>
                         <ul className="space-y-1 text-sm text-muted-foreground">
-                          <li>• {t.rec1}</li>
-                          <li>• {t.rec2}</li>
-                          <li>• {t.rec3}</li>
+                          <li>• Maintain soil moisture</li>
+                          <li>• Regular monitoring required</li>
+                          <li>• Apply fertilizer as needed</li>
                         </ul>
                       </div>
                     )}
@@ -257,15 +220,15 @@ export default function Dashboard() {
                     <div className="flex items-start gap-3 p-3 rounded-lg border bg-muted/40">
                       <AlertTriangle className="h-5 w-5 text-orange-500 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold">{t.weatherAlert}</h4>
-                        <p className="text-sm text-muted-foreground">{t.rain}</p>
+                        <h4 className="font-semibold">Weather Alert</h4>
+                        <p className="text-sm text-muted-foreground">Rain expected in next 3 days</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 p-3 rounded-lg border bg-muted/40">
                       <TrendingUp className="h-5 w-5 text-green-500 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold">{t.sowing}</h4>
-                        <p className="text-sm text-muted-foreground">{t.wheatSowing}</p>
+                        <h4 className="font-semibold">Sowing Time</h4>
+                        <p className="text-sm text-muted-foreground">Optimal time for wheat sowing</p>
                       </div>
                     </div>
                   </CardContent>
