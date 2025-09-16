@@ -89,7 +89,7 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
       hi: {
         weather: "आज का मौसम अच्छा है। तापमान 28°C है और हल्की हवा चल रही है।",
         crop: "इस मौसम में गेहूं की बुआई के लिए अच्छा समय है। मिट्टी की नमी बनाए रखें।",
-        fertilizer: "आपकी फसल के लिए यूरिया और DAP का उपयोग करे��। प्रति एकड़ 50 किलो यूरिया डालें।",
+        fertilizer: "आपकी फसल के लिए यूरिया और DAP का उपयोग करें। प्रति एकड़ 50 किलो यूरिया डालें।",
         default: "मैं आपकी खेती में मदद करने के लिए यहां हूं। कृपया अपना प्रश्न पूछें।",
       },
       en: {
@@ -99,16 +99,16 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
         default: "I'm here to help with your farming needs. Please ask your question.",
       },
       bn: {
-        weather: "আজকের আবহাওয়া ভালো। তাপমাত্রা ২৬°সে এবং হালকা বাতাস বইছে।",
+        weather: "আজকের আবহাওয়া ভালো। তাপমাত্রা ২৬°সে এ���ং হালকা বাতাস বইছে।",
         crop: "এই মৌসুমে ধান চাষের জন্য উপযুক্ত সময়। মাটির আর্দ্রতা বজায় রাখুন।",
         fertilizer: "আপনার ফসলের জন্য ইউরিয়া এবং টিএসপি ব্যবহার করুন। প্রতি বিঘায় ২০ কেজি ইউরিয়া দিন।",
-        default: "আ��ি আপনার কৃষিকাজে সাহায্য করতে এখানে আছি। অনুগ্রহ করে আপনার প্রশ্ন করুন।",
+        default: "আমি আপনার কৃষিকাজে সাহায্য করতে এখানে আছি। অনুগ্রহ করে আপনার প্রশ্ন করুন।",
       },
       te: {
-        weather: "ఈరోజు వాతావరణం బాగుంది. ఉష్ణోగ్రత 28°C ఉంది మరియు తేలಿಕపాటి గಾಳಿ వీస్తోంది.",
+        weather: "ఈరోజు వాతావరణం బాగుంది. ఉష్ణోగ్రత 28°C ఉంది మరియు తేలికపాటి గాలి వీస్తోంది.",
         crop: "ఇది గోధుమల విత్తనానికి మంచి సమయం. మట్టి తేమను ఉంచండి.",
         fertilizer: "మీ పంటలకు యూరియా మరియు DAP వాడండి. ఎకరానికి 50kg యూరియా వేయండి.",
-        default: "నేను మీ వ్యవసాయ అవసరాలకు సహాయం చేయడానికి ఇక్కడ ఉన్నాను. దయచేసి మీ ప్రశ్న అడగండి.",
+        default: "నేను ���ీ వ్యవసాయ అవసరాలకు సహాయం చేయడానికి ఇక్కడ ఉన్నాను. దయచేసి మీ ప్రశ్న అడగండి.",
       },
       ta: {
         weather: "இன்றைய வானிலை நல்லது. வெப்பநிலை 28°C மற்றும் மெதுவான காற்று உள்ளது.",
@@ -123,7 +123,7 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
         default: "मी तुमच्या शेतीस मदत करण्यासाठी येथे आहे. कृपया तुमचा प्रश्न विचारा.",
       },
       gu: {
-        weather: "આજનું હવામાન સારું છે. તાપમાન 28°C છે અને હળવો પવન ફૂંકાઈ રહ્યો ���ે.",
+        weather: "આજનું હવામાન સારું છે. તાપમાન 28°C છે અને હળવો પવન ફૂંકાઈ રહ્યો છે.",
         crop: "આ ગહૂં વાવણી માટેનો સારો સમય છે. માટીનો ભેજ જાળવો.",
         fertilizer: "તમારા પાક માટે યુરિયા અને DAP નો ઉપયોગ કરો. પ્રતિ એકર 50 કિલો યુરિયા આપો.",
         default: "હું તમારી ખેતીમાં મદદ કરવા માટે અહીં છું. કૃપા કરીને તમારો પ્રશ્ન પૂછો.",
@@ -132,7 +132,7 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
         weather: "ಇಂದಿನ ಹವಾಮಾನ ಉತ್ತಮವಾಗಿದೆ. ತಾಪಮಾನ 28°C ಇದೆ ಮತ್ತು ಹಗುರವಾದ ಗಾಳಿ ಬೀಸುತ್ತಿದೆ.",
         crop: "ಇದು ಗೋಧಿ ಬಿತ್ತನೆಗೆ ಉತ್ತಮ ಸಮಯ. ಮಣ್ಣಿನ ತೇವಾಂಶವನ್ನು ಕಾಪಾಡಿ.",
         fertilizer: "ನಿಮ್ಮ ಬೆಳೆಗಳಿಗೆ ಯೂರಿಯಾ ಮತ್ತು DAP ಬಳಸಿ. ಎಕರೆಗೆ 50 ಕಿಲೋ ಯೂರಿಯಾ ಹಾಕಿ.",
-        default: "ನಾನು ನಿಮ್ಮ ಕೃಷಿಗೆ ಸಹಾಯ ಮಾಡಲು ಇಲ್ಲಿದ್ದೇನೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಪ��ರಶ್ನೆಯನ್ನು ಕೇಳಿ.",
+        default: "ನಾನು ನಿಮ್ಮ ಕೃಷಿಗೆ ಸಹಾಯ ಮಾಡಲು ಇಲ್ಲಿದ್ದೇನೆ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಕೇಳಿ.",
       },
     }
 
@@ -215,20 +215,20 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
   const labels: any = {
     hi: { title: "कृषि सहायक", placeholder: "अपना प्रश्न टाइप करें...", listening: "सुन रहा हूं..." },
     en: { title: "Farm Assistant", placeholder: "Type your question...", listening: "Listening..." },
-    bn: { title: "কৃষি সহায়ক", placeholder: "আপনার প্রশ্ন টাইপ করুন...", listening: "শুনছি..." },
+    bn: { title: "কৃষি সহায়ক", placeholder: "আপনার প্রশ্ন টাইপ ক��ুন...", listening: "শুনছি..." },
     te: { title: "వ్యవసాయ సహాయకుడు", placeholder: "మీ ప్రశ్నను టైప్ చేయండి...", listening: "వినుతున్నాను..." },
     ta: { title: "விவசாய உதவியாளர்", placeholder: "உங்கள் கேள்வியை தட்டச்சு செய்யவும்...", listening: "கேட்கிறேன்..." },
     mr: { title: "कृषी सहाय्यक", placeholder: "तुमचा प्रश्न टाइप करा...", listening: "ऐकत आहे..." },
-    gu: { title: "કૃષિ સહાયક", placeholder: "તમારો પ્રશ્ન લખ��...", listening: "સાંભળું છું..." },
+    gu: { title: "કૃષિ સહાયક", placeholder: "તમારો પ્રશ્ન લખો...", listening: "સાંભળું છું..." },
     kn: { title: "ಕೃಷಿ ಸಹಾಯಕ", placeholder: "ನಿಮ್ಮ ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ...", listening: "ಕೇಳುತ್ತಿರುವೆ..." },
   }
   const currentLabels = labels[language]
 
   return (
-    <Card className="h-[500px] flex flex-col">
+    <Card className="h-[500px] flex flex-col playful-card">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2">
-          <Bot className="h-5 w-5 text-primary" />
+          <Bot className="h-5 w-5 text-primary playful-icon" />
           {currentLabels.title}
           {!speechSupported && <span className="text-xs text-muted-foreground ml-2">(Text only)</span>}
         </CardTitle>
@@ -240,7 +240,7 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
           <div className="space-y-4">
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground py-8">
-                <Bot className="h-12 w-12 mx-auto mb-4 text-muted-foreground/50" />
+                <Bot className="h-12 w-12 mx-auto mb-4 text-muted-foreground/50 playful-icon" />
                 <p>{currentLabels.title}</p>
               </div>
             )}
@@ -248,14 +248,14 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
             {messages.map((message) => (
               <div key={message.id} className={`flex gap-3 ${message.type === "user" ? "justify-end" : "justify-start"}`}>
                 {message.type === "bot" && (
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 playful-icon">
                     <Bot className="h-4 w-4 text-primary-foreground" />
                   </div>
                 )}
 
                 <div
                   className={`max-w-[80%] rounded-lg px-3 py-2 ${
-                    message.type === "user" ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                    message.type === "user" ? "chat-bubble-user" : "chat-bubble-bot"
                   }`}
                 >
                   <p className="text-sm">{message.content}</p>
@@ -272,7 +272,7 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
                 </div>
 
                 {message.type === "user" && (
-                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 playful-icon">
                     <User className="h-4 w-4 text-secondary-foreground" />
                   </div>
                 )}
@@ -281,7 +281,7 @@ export default function VoiceChatbot({ language }: VoiceChatbotProps) {
 
             {isLoading && (
               <div className="flex gap-3 justify-start">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 playful-icon">
                   <Bot className="h-4 w-4 text-primary-foreground" />
                 </div>
                 <div className="bg-muted rounded-lg px-3 py-2">
